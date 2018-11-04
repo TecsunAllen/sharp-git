@@ -9,9 +9,7 @@ function activate(context) {
     context.subscriptions.push(vscode.commands.registerCommand('extension.gitAdd', () => {
         console.log(`git add ${vscode.window.activeTextEditor.document.uri.fsPath}`);
         exec(`git add ${vscode.window.activeTextEditor.document.uri.fsPath}`, { cwd: vscode.workspace.rootPath }, function (err, stdout, stderr) {
-            if (err) {
-                console.log('error:' + stderr);
-            }
+            if (err) console.log('error:' + stderr);
         });
     }));
 
@@ -32,3 +30,5 @@ exports.activate = activate;
 function deactivate() {
 }
 exports.deactivate = deactivate;
+
+//tsc --allowJs

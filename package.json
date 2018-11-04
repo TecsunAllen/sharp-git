@@ -8,7 +8,7 @@
         "vscode": "^1.28.0"
     },
     "categories": [
-        "Other"
+        "SCM Providers"
     ],
     "activationEvents": [
         "onCommand:extension.gitAdd"
@@ -18,14 +18,13 @@
         "commands": [
             {
                 "command": "extension.gitAdd",
-                "title": "Helltsda"
+                "title": "git add file"
             }
         ]
     },
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "node ./node_modules/vscode/bin/test",
-        "gitAdd": "git add"
+        "test": "node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
         "typescript": "^2.6.1",
@@ -37,16 +36,21 @@
     "menus": {
         "editor/context": [
             {
-                "when": "editorFocus",
+                "when": "editorTextFocus",
                 "command": "extension.gitAdd",
-                "group": "navigation",
-                "title": "sdasdas"
+                "group": "sharpGit"
             }
         ],
         "explorer/context": [
             {
                 "command": "extension.gitAdd",
-                "group": "navigation"
+                "group": "sharpGit"
+            }
+        ],
+        "commandPalette": [
+            {
+                "command": "extension.gitAdd",
+                "when": "editorTextFocus"
             }
         ]
     }
